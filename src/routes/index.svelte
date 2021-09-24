@@ -1,5 +1,5 @@
 <script>
-import Toggle from '$lib/components/Toggle.svelte'
+import Toggle from '$lib/shui/Toggle.svelte'
 </script>
 
 <Toggle />
