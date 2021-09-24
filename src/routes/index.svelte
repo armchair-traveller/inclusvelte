@@ -1,5 +1,17 @@
 <script>
-import Toggle from '$lib/shui/Toggle.svelte'
+import { toggle } from '$lib/shui/toggle'
+let pressed = false
 </script>
 
-<Toggle />
+<label for="email"
+  >Email
+  <button
+    tabindex="0"
+    id="email"
+    role="button"
+    on:change={() => (pressed = !pressed)}
+    use:toggle={pressed}
+  >
+    {pressed}
+  </button>
+</label>
