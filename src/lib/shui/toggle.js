@@ -33,20 +33,26 @@ import { addEvts } from './utils/action'
   'aria-describedby': groupContext?.describedby,
 */
 
-/**
- * Attach on a button you desire to be a toggle. Pass in current pressed state.
- * Triggers change event on toggle. `e.detail` with desired change value.
+/** Toggle action
  *
- * Usage:
+ * Pass in current pressed state.
+ * Triggers change event on press. `e.detail` contains desired change value.
+ *
+ *### Usage
  * ```svelte
  * <button on:change={()=>(pressed = !pressed)} use:toggle={pressed} />
  * ```
  *
- * Note: If this action is used on an element that isn't a button / input type=button, please set `role="button"`.
+ * For labeling, default `<label>` will work as expected.
+ *
+ * Note for rare usecase: If this action is used on an element that isn't a button / input type=button/submit, please add
+ * `role="button" tabindex="0"`. In this scenario, `<label>`'s click event will also not work according to normal usage,
+ * so if click behavior is desired just manually add a click event to set the press state.
  */
 export function toggle(el, pressed = false) {
   update(pressed)
 
+  // ? Could easily paas in the event that caused the change to detail, but I don't see the point of doing so. Needs use case.
   function toggle() {
     el.dispatchEvent(new CustomEvent('change', { detail: !pressed }))
   }
