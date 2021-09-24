@@ -1,5 +1,5 @@
 <script>
-  let pressed = false;
+let pressed = false
 </script>
 
 <button class="{pressed ? 'l' : 'h'} " aria-pressed={pressed} on:click>
