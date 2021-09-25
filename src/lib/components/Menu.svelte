@@ -4,7 +4,7 @@ menu has open/closed states
 markup:
 button
 menu (AKA items)
-ul (AKA item)
+li (AKA list item)
 
 (there're other bits of markup but they're only serving as context to share state, which can simply clutter up your markup.)
 
