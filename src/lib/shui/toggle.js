@@ -36,7 +36,7 @@ import { addEvts } from './utils/action'
 /** Toggle action
  *
  * Pass in current pressed state.
- * Triggers change event on press. `e.detail` contains desired change value.
+ * Fires change event on press. `e.detail` contains desired change value.
  *
  *### Usage
  * ```svelte
