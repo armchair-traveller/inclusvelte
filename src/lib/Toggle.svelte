@@ -13,5 +13,5 @@ let pressed = false
   <span aria-hidden="true">{play ? '&#x25b6;' : '&#x23f8;'}</span>
   <span class="visually-hidden">play</span>
   ```
-  This component seems so small... there just doesn't seem like any good reason to abstract it.
+  This component seems so small... there just doesn't seem like any good reason to abstract it... But I did it anyway.
  -->
