@@ -8,7 +8,7 @@ export function useMenu() {
     itemEls = [],
     isOpen = false
 
-  Object.assign(menu, {
+  Object.assign(Menu, {
     ...writable(false),
     /** button action */
     button(el) {
@@ -34,23 +34,23 @@ export function useMenu() {
             case ' ':
             case 'Enter':
             case 'ArrowDown':
-              e.preventDefault()
-              e.stopPropagation()
-              openMenu()
-              await tick()
+              await openTick()
               itemEls[0]?.focus()
               // TODO: activate first non-disabled item
               // dispatch({ type: ActionTypes.GoToItem, focus: Focus.First })
               break
             case 'ArrowUp':
-              e.preventDefault()
-              e.stopPropagation()
-              openMenu()
-              await tick()
+              await openTick()
               itemEls.at(-1)?.focus()
               // TODO: activate last item
               // dispatch({ type: ActionTypes.GoToItem, focus: Focus.Last })
               break
+          }
+          function openTick() {
+            e.preventDefault()
+            e.stopPropagation()
+            openMenu()
+            return tick()
           }
         },
         keyup(e) {
@@ -68,17 +68,18 @@ export function useMenu() {
       }
     },
   })
-  onMount(() => menu.subscribe((open) => (isOpen = open)))
+  onMount(() => Menu.subscribe((open) => (isOpen = open)))
   // === Main shared functionality
   function openMenu() {
-    menu.set(true)
+    Menu.set(true)
   }
   function closeMenu() {
-    menu.set(false)
+    Menu.set(false)
   }
 
   /** Menu action store */
-  function menu(el) {
+  function Menu(el) {
     menuEl = el
+    el
   }
 }
