@@ -6,7 +6,7 @@ to cleanup your handlers by reacting to the bound el.
 <script>
 import { afterUpdate } from 'svelte'
 /** bind to this prop */
-export let el
+export let el = null
 let beforeEl,
   ready = true
 $: if (beforeEl) {
