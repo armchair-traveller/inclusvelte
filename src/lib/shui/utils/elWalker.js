@@ -12,7 +12,7 @@ export function elWalker(rootEl, filter) {
     rootEl,
     NodeFilter.SHOW_ELEMENT,
     {
-      acceptNode: (el) => filter(el) && NodeFilter.FILTER_ACCEPT,
+      acceptNode: (el) => (filter(el) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP),
     },
     false
   )

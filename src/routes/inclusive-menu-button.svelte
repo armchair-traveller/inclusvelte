@@ -1,5 +1,5 @@
 <script>
-import useMenu from '$lib/experimental/menu'
+import useMenu from 'src/experimental/menu'
 import { fade } from 'svelte/transition'
 const menu = useMenu()
 </script>
